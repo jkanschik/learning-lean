@@ -23,12 +23,40 @@ Let's go through the different variables that are defined here:
 * `{𝕜 : Type*} [NontriviallyNormedField 𝕜]` is the field over which we work, i.e. the real or complex numbers. All statements about manifolds should work with an arbitrary nontrivial, normed field as long as possible since most concepts can be used for the reals and complex numbers.
 
 * `{H : Type*} [TopologicalSpace H]`
+
 * `{E : Type*} [NormedAddCommGroup E] [NormedSpace 𝕜 E]`
+
 * `{I : ModelWithCorners 𝕜 E H}`
+
 * `{M : Type*} [TopologicalSpace M] [ChartedSpace H M] [IsManifold I n M] [CompleteSpace E]`
 
+When working with several manifolds at the time, it's best to call them `M`, `M'`, or `M''` or use subscripts `M₁`, `M₂`, etc. and use the same convention for the underlying objects like `I`, `I' and so on. Otherwise it's easy to loose track of the dependencies, causing weird errors.
+
+## The tangent space of manifolds
+
+Based on the differentiable structure given by `IsManifold`, we can define the tangent bundle of `M`.
+
+## Maps between manifolds
+
+We now consider maps between manifolds. Unless we demand differentiability, these are just functions between types: \\( f: M \to M'\\) is defined as
+```
+variable (F: M → M')
+```
+
+To state that the map is differentiable, we have different possibilities:
+*
+
+ContMDiffMap and notations
+
+## Examples
+
+Real vector space and subspaces: Instances.Real
+curves and homotopies => geodesic variations
+
+Spheres. Instances.Sphere
 
 
+For products and disjoint union, see IsManifold.Basic
 
 TODOs:
 * Can we put n in {}?
