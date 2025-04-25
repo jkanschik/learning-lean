@@ -18,8 +18,8 @@ Serve files locally:
 
 ## Latex works that easy?
 
-Inline $ 2+2 = 4$ works maybe also
+Inline \(2+2 = 4\) works maybe also
 
 And a paragraph
 
-$$ \tfrac{\Nabla}{dt}\gamma' = 0 $$
+\[ \tfrac{\Nabla}{dt}\gamma' = 0 \]
