@@ -1,3 +1,5 @@
 .lake
 articles
 docbuild
+private
+<!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
