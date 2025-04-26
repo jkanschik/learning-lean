@@ -31,7 +31,7 @@ is the field over which we work, i.e. the real or complex numbers. All statement
 * `{I : ModelWithCorners 𝕜 E H}`
 
 * `{M : Type*} [TopologicalSpace M] [ChartedSpace H M] [IsManifold I n M] [CompleteSpace E]`
-To start with, `M` is a `[TopologicalSpace](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Topology/Defs/Basic.html#TopologicalSpace)`, which means we have a proper topology.
+To start with, `M` is a [`TopologicalSpace`](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Topology/Defs/Basic.html#TopologicalSpace), which means we have a proper topology.
 The type class `ChartedSpace` defines an atlas on the topological space, i.e. a set of homoemorphisms from `M` to the model space such that the domains cover the whole space. This doesn't define a manifold structure yet. To do so, we need the type class `IsManifold`, which states that the coordinate transformations of the charted space form a groupoid of differentiable maps.
 
 
