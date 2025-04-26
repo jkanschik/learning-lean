@@ -48,6 +48,7 @@ Topics to cover:
 * Motivation: second order derivative fails
 * connections on vector bundles in general
 * affine connection on vector fields
+* How to define a parallel tensor? Like a type class IsParallel for a class of tensors? Or just as a proposition isParallel iff Ds = 0?
 * normal derivative as connection on functions (which are sections in the trivial bundle M \times k over M)
 * torsion tensor, curvature tensor
 

@@ -18,9 +18,11 @@ variable
 [Open in Lean 4 Web](https://live.lean-lang.org/#codez=JYWwDg9gTgLgBAWQIYwBYBtgCMB0BxAUwhAJigE8dkA7YAMwnQBMcBJAZxvsZYCEl2wAMYAoEQDckUYEizoCIuHAAU1OAC44AdWBoAKhDBxAqISA8IgCUiuAG9ArBuAdXY1w95MAQBUAXzgBtAHIQ1GTA4jLo6OQBUCRMAGLABMxwDgC6VtYAEk4ubl6+BpDoEADmwkjoAMpgSEIEcBlpStYAotmuHt7+0DEAgkxMAMLEIHhQEACuRs0pvlExVTV1DnDT6axOCBBMiTpoQ1DUBFDsyY6tGZ7pCG25nQWMJWWV1bWIMz4DqFIwBEwLr1kEO8OFwGEl1mogb4huB5D9/nVViIAMRCVAEIQAa0QIiAA)
 
 Let's go through the different variables that are defined here:
-* `(n : WithTop ℕ∞)` is the a smoothness parameter. It can vary from `n = 0` for a topological manifold, i.e. no differentiable structure to `n = ∞` for a smooth manifold and `n = ω` for an analytic manifold.
+* `(n : WithTop ℕ∞)`
+is the a smoothness parameter. It can vary from `n = 0` for a topological manifold, i.e. no differentiable structure to `n = ∞` for a smooth manifold and `n = ω` for an analytic manifold.
 
-* `{𝕜 : Type*} [NontriviallyNormedField 𝕜]` is the field over which we work, i.e. the real or complex numbers. All statements about manifolds should work with an arbitrary nontrivial, normed field as long as possible since most concepts can be used for the reals and complex numbers.
+* `{𝕜 : Type*} [NontriviallyNormedField 𝕜]`
+is the field over which we work, i.e. the real or complex numbers. All statements about manifolds should work with an arbitrary nontrivial, normed field as long as possible since most concepts can be used for the reals and complex numbers.
 
 * `{H : Type*} [TopologicalSpace H]`
 
@@ -29,6 +31,14 @@ Let's go through the different variables that are defined here:
 * `{I : ModelWithCorners 𝕜 E H}`
 
 * `{M : Type*} [TopologicalSpace M] [ChartedSpace H M] [IsManifold I n M] [CompleteSpace E]`
+To start with, `M` is a `[TopologicalSpace](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Topology/Defs/Basic.html#TopologicalSpace)`, which means we have a proper topology.
+The type class `ChartedSpace` defines an atlas on the topological space, i.e. a set of homoemorphisms from `M` to the model space such that the domains cover the whole space. This doesn't define a manifold structure yet. To do so, we need the type class `IsManifold`, which states that the coordinate transformations of the charted space form a groupoid of differentiable maps.
+
+
+
+**TODO** Do we really need `[CompleteSpace E]`? It states that Cauchy sequences converge. Can this be deduced from the other type classes?
+{: .notice--warning}
+
 
 When working with several manifolds at the time, it's best to call them `M`, `M'`, or `M''` or use subscripts `M₁`, `M₂`, etc. and use the same convention for the underlying objects like `I`, `I' and so on. Otherwise it's easy to loose track of the dependencies, causing weird errors.
 
