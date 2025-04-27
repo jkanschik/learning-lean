@@ -65,25 +65,36 @@ File [MFDeriv.Defs](https://leanprover-community.github.io/mathlib4_docs/Mathlib
 asasdasd
 : asdasd
 
-[HasMFDerivWithinAt](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/MFDeriv/Defs.html#HasMFDerivWithinAt)
+### API to check whether a function is differentiable
 
+[MDifferentiableOn](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/MFDeriv/Defs.html#MDifferentiableOn)
+: `MDifferentiableOn I I' f s` indicates that the function f between manifolds has a derivative within s at all points of s
+
+#### API to check whether a function has a given derivative
+
+[HasMFDerivWithinAt](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/MFDeriv/Defs.html#HasMFDerivWithinAt)
+: `HasMFDerivWithinAt I I' f s x f'` indicates that the function f between manifolds has, at the point x and within the set s, the derivative f'.
 
 [HasMFDerivAt](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/MFDeriv/Defs.html#HasMFDerivAt)
 : `HasMFDerivAt I I' f x f'` indicates that the function f between manifolds has, at the point x, the derivative f'.
 
 
+###### API to provide the derivative
 
 [mfderivWithin](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/MFDeriv/Defs.html#mfderivWithin)
-: `mfderivWithin I I' f s x` is the derivative of f at x within the set s
+: `mfderivWithin I I' f s x` is the derivative of f at x within the set s.
 
 [mfderiv](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/MFDeriv/Defs.html#mfderiv)
-:  `mfderiv I I' f x` is the derivative of f at x
+:  `mfderiv I I' f x` is the derivative of f at x.
 
+
+### API to provide the derivative as a map of tangent bundles
 
 [tangentMapWithin](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/MFDeriv/Defs.html#tangentMapWithin)
-
+: The derivative within a set, as a map between the tangent bundles.
 
 [tangentMap](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/MFDeriv/Defs.html#tangentMap)
+: The derivative, as a map between the tangent bundles
 
 
 
