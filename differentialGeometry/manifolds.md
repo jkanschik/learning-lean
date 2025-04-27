@@ -1,6 +1,6 @@
 # Manifolds in Mathlb
 
-We will discuss how manifolds can be described in Mathlib. To do this, let's dive straight in and define the manifold \\( M \\) and don't worry, we will dissect it:
+We will discuss how manifolds can be described in Mathlib. To do this, let's dive straight in and define a manifold `M` in Mathlib. Don't worry, we will break down the various variables and type classes:
 
 ```
 import Mathlib.Geometry.Manifold.IsManifold.Basic
@@ -36,10 +36,10 @@ The type class `ChartedSpace` defines an atlas on the topological space, i.e. a 
 
 
 
-**TODO** Do we really need `[CompleteSpace E]`? It states that Cauchy sequences converge. Can this be deduced from the other type classes?
+**TODO** Do we really need `[CompleteSpace E]`? It states that Cauchy sequences converge. Can this be deduced from the other type classes? How long can we ignore this?
 
 
-When working with several manifolds at the time, it's best to call them `M`, `M'`, or `M''` or use subscripts `M₁`, `M₂`, etc. and use the same convention for the underlying objects like `I`, `I' and so on. Otherwise it's easy to loose track of the dependencies, causing weird errors.
+When working with several manifolds at the time, it's best to call them `M`, `M'`, or `M''` or use subscripts `M₁`, `M₂`, etc. and use the same convention for the underlying objects like `I`, `I'` and so on. Otherwise it's easy to loose track of the dependencies, causing errors.
 
 ## The tangent space of manifolds
 
@@ -64,6 +64,13 @@ We first consider `ContMDiff`: a function between two manifolds is differentiabl
 [ContMDiff](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/ContMDiff/Defs.html#ContMDiff)
 : `ContMDiff I I' n f` is the proposition that the function `f: M → N` is `n`-times differentiable at all points in `M`.
 
+### The space of all differentiable functions
+
+In file [ContMDiffMap](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/ContMDiffMap.html#ContMDiffMap) the space of all differentiable functions  `f: M → N` with smoothness parameter `n` is introduced as [`ContMDiffMap I I' M M' n`](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/ContMDiffMap.html#ContMDiffMap).
+As a shorter notation, we can use `C^n⟮I, M; I', N⟯` and for functions with values in `𝕜` we can write `C^n⟮I, M; 𝕜⟯`.
+
+The same file also provides various functions in `C^n⟮I, M; I', N⟯` and `C^n⟮I, M; 𝕜⟯`, namely the identity, constant functions, compositions, products of functions and the projection onto factors of products.
+
 ### The Fréchet derivative
 
 The Fréchet derivative is the derivative of a differentiable function at a point as a linear map between the tangent spaces of the two manifolds. Given a function `f: M → N`, the Fréchet derivative `f'` at a point `x` is a linear map `f': T_xM → T_xN`.
@@ -72,7 +79,7 @@ Please note that the Fréchet derivative is only the first derivative. Since `f'
 
 Similar to `ContMDiff`, the propositions for the Fréchet derivative come in different variations:
 
-### API to check whether a function is differentiable
+#### API to check whether a function is differentiable
 
 [MDifferentiableWithinAt](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/MFDeriv/Defs.html#MDifferentiableWithinAt)
 : MDifferentiableWithinAt I I' f s x indicates that the function f between manifolds has a derivative at the point x within the set s.
@@ -95,7 +102,7 @@ Similar to `ContMDiff`, the propositions for the Fréchet derivative come in dif
 : `HasMFDerivAt I I' f x f'` indicates that the function f between manifolds has, at the point x, the derivative f'.
 **TODO** Warum hier kein Set?
 
-###### API to provide the derivative
+#### API to provide the derivative
 
 [mfderivWithin](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/MFDeriv/Defs.html#mfderivWithin)
 : `mfderivWithin I I' f s x` is the derivative of f at x within the set s.
@@ -104,7 +111,7 @@ Similar to `ContMDiff`, the propositions for the Fréchet derivative come in dif
 :  `mfderiv I I' f x` is the derivative of f at x.
 
 
-### API to provide the derivative as a map of tangent bundles
+#### API to provide the derivative as a map of tangent bundles
 
 The following two definitions give the derivative of a function as a map of tangent bundles. They simply reformulate `mderiv` and `mderivWithin` in terms of the tangent bundles `TangentBundle I M` and `TangentBundle I' M'`.
 
@@ -113,6 +120,12 @@ The following two definitions give the derivative of a function as a map of tang
 
 [tangentMap](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/MFDeriv/Defs.html#tangentMap)
 : `tangentMap f` is the derivative, as a map between the tangent bundles.
+
+
+
+
+
+
 
 
 
