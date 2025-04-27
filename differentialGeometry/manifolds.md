@@ -37,7 +37,6 @@ The type class `ChartedSpace` defines an atlas on the topological space, i.e. a 
 
 
 **TODO** Do we really need `[CompleteSpace E]`? It states that Cauchy sequences converge. Can this be deduced from the other type classes?
-{: .notice--warning}
 
 
 When working with several manifolds at the time, it's best to call them `M`, `M'`, or `M''` or use subscripts `M₁`, `M₂`, etc. and use the same convention for the underlying objects like `I`, `I' and so on. Otherwise it's easy to loose track of the dependencies, causing weird errors.
@@ -57,6 +56,37 @@ To state that the map is differentiable, we have different possibilities:
 *
 
 ContMDiffMap and notations
+
+
+File [MFDeriv.Defs](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/MFDeriv/Defs.html#HasMFDerivAt)
+
+- [ ] asdasd
+
+asasdasd
+: asdasd
+
+[HasMFDerivWithinAt](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/MFDeriv/Defs.html#HasMFDerivWithinAt)
+
+
+[HasMFDerivAt](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/MFDeriv/Defs.html#HasMFDerivAt)
+: `HasMFDerivAt I I' f x f'` indicates that the function f between manifolds has, at the point x, the derivative f'.
+
+
+
+[mfderivWithin](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/MFDeriv/Defs.html#mfderivWithin)
+: `mfderivWithin I I' f s x` is the derivative of f at x within the set s
+
+[mfderiv](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/MFDeriv/Defs.html#mfderiv)
+:  `mfderiv I I' f x` is the derivative of f at x
+
+
+[tangentMapWithin](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/MFDeriv/Defs.html#tangentMapWithin)
+
+
+[tangentMap](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/MFDeriv/Defs.html#tangentMap)
+
+
+
 
 ## Examples
 
