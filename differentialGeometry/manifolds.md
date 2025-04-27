@@ -59,10 +59,10 @@ We first consider `ContMDiff`: a function between two manifolds is differentiabl
 : `ContMDiffAt I I' n f x` is the proposition that the function `f: M → N` is `n`-times differentiable at `x`. It is the same proposition as `ContMDiffWithinAt I I' n f Set.univ x`.
 
 [ContMDiffOn](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/ContMDiff/Defs.html#ContMDiffOn)
-: `ContMDiffOn I I' n f s` is the proposition that the function `f: M → N` is `n`-times differentiable at all points in the set s.
+: `ContMDiffOn I I' n f s` is the proposition that the function `f: M → N` is `n`-times differentiable at all points in the set s. Similar to `ContMDiffAt`, this is expressed in terms of `ContMDiffWithinAt` as `∀ x ∈ s, ContMDiffWithinAt I I' n f s x`.
 
 [ContMDiff](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/ContMDiff/Defs.html#ContMDiff)
-: `ContMDiff I I' n f` is the proposition that the function `f: M → N` is `n`-times differentiable at all points in `M`.
+: `ContMDiff I I' n f` is the proposition that the function `f: M → N` is `n`-times differentiable at all points in `M`. Again, this is based on `ContMDiffAt` as `∀ (x : M), ContMDiffAt I I' n f x` and hence proven by `ContMDiffWithinAt`.
 
 ### The space of all differentiable functions
 
