@@ -16,7 +16,7 @@ version = "0.1.0"
 packagesDir = "../.lake/packages"
 
 [[require]]
-name = "LearningMathlib"
+name = "learning-mathlib"
 path = "../"
 
 [[require]]
