@@ -47,28 +47,44 @@ Based on the differentiable structure given by `IsManifold`, we can define the t
 
 ## Maps between manifolds
 
-We now consider maps between manifolds. Unless we demand differentiability, these are just functions between types: \\( f: M \to M'\\) is defined as
-```
-variable (F: M → M')
-```
+We now consider differentiable maps between manifolds. There are two parts in Mathlib that deal with differentiability of functions: [`MFDeriv`](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/MFDeriv/Defs.html), which defines the Fréchet derivative of functions and [`ContMDiff`](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/ContMDiff/Defs.html).
 
-To state that the map is differentiable, we have different possibilities:
-*
+### C^n functions between manifolds
+We first consider `ContMDiff`: a function between two manifolds is differentiable, if the function is differentiable when we read the function in charts. This doesn't make any statement about what the derivate at a certain point is, only that when the function is read as a function in local charts, the function is differentiable. Because this is a local property, the statements about differentiability come in different flavours; in all cases, `n` can be finite, or `∞`, or `ω` for smooth and analytic functions.
 
-ContMDiffMap and notations
+[ContMDiffWithinAt](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/ContMDiff/Defs.html#ContMDiffWithinAt)
+: `ContMDiffWithinAt I I' n f s x` is the proposition that the function `f: M → N` is `n`-times differentiable in the set `s` at `x`.
 
+[ContMDiffAt](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/ContMDiff/Defs.html#ContMDiffAt)
+: `ContMDiffAt I I' n f x` is the proposition that the function `f: M → N` is `n`-times differentiable at `x`. It is the same proposition as `ContMDiffWithinAt I I' n f Set.univ x`.
 
-File [MFDeriv.Defs](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/MFDeriv/Defs.html#HasMFDerivAt)
+[ContMDiffOn](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/ContMDiff/Defs.html#ContMDiffOn)
+: `ContMDiffOn I I' n f s` is the proposition that the function `f: M → N` is `n`-times differentiable at all points in the set s.
 
-- [ ] asdasd
+[ContMDiff](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/ContMDiff/Defs.html#ContMDiff)
+: `ContMDiff I I' n f` is the proposition that the function `f: M → N` is `n`-times differentiable at all points in `M`.
 
-asasdasd
-: asdasd
+### The Fréchet derivative
+
+The Fréchet derivative is the derivative of a differentiable function at a point as a linear map between the tangent spaces of the two manifolds. Given a function `f: M → N`, the Fréchet derivative `f'` at a point `x` is a linear map `f': T_xM → T_xN`.
+
+Please note that the Fréchet derivative is only the first derivative. Since `f': TM → TM'` is a map between the two tangent bundles and not the original manifolds, The second derivative `f''` would be a map between the tangent bundles of the tangent bundles and so on. When we do calculus on vector spaces, this is not a problem, because we identify the tangent space at a point with the vector space itself. However, because the tangent bundle is usually not trivial, this is not possible on manifolds. To have a notion of higher order derivatives, we will introduce [linear connections](connections.html).
+
+Similar to `ContMDiff`, the propositions for the Fréchet derivative come in different variations:
 
 ### API to check whether a function is differentiable
 
+[MDifferentiableWithinAt](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/MFDeriv/Defs.html#MDifferentiableWithinAt)
+: MDifferentiableWithinAt I I' f s x indicates that the function f between manifolds has a derivative at the point x within the set s.
+
+[MDifferentiableAt](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/MFDeriv/Defs.html#MDifferentiableAt)
+: `MDifferentiableAt I I' f x` indicates that the function f between manifolds has a derivative at the point x.
+
 [MDifferentiableOn](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/MFDeriv/Defs.html#MDifferentiableOn)
-: `MDifferentiableOn I I' f s` indicates that the function f between manifolds has a derivative within s at all points of s
+: `MDifferentiableOn I I' f s` indicates that the function f between manifolds has a derivative within s at all points of s. This proposition is true if `MDifferentiableWithinAt` is true for all points in `s`.
+
+[MDifferentiable](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/MFDeriv/Defs.html#MDifferentiable)
+: `MDifferentiable I I' f` indicates that the function f between manifolds has a derivative everywhere.
 
 #### API to check whether a function has a given derivative
 
@@ -77,7 +93,7 @@ asasdasd
 
 [HasMFDerivAt](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/MFDeriv/Defs.html#HasMFDerivAt)
 : `HasMFDerivAt I I' f x f'` indicates that the function f between manifolds has, at the point x, the derivative f'.
-
+**TODO** Warum hier kein Set?
 
 ###### API to provide the derivative
 
@@ -90,11 +106,13 @@ asasdasd
 
 ### API to provide the derivative as a map of tangent bundles
 
+The following two definitions give the derivative of a function as a map of tangent bundles. They simply reformulate `mderiv` and `mderivWithin` in terms of the tangent bundles `TangentBundle I M` and `TangentBundle I' M'`.
+
 [tangentMapWithin](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/MFDeriv/Defs.html#tangentMapWithin)
 : The derivative within a set, as a map between the tangent bundles.
 
 [tangentMap](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/MFDeriv/Defs.html#tangentMap)
-: The derivative, as a map between the tangent bundles
+: `tangentMap f` is the derivative, as a map between the tangent bundles.
 
 
 
