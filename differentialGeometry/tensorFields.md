@@ -1,3 +1,18 @@
+# Vector bundles and tensor fields
+
+## Vector bundles
+
+## Sections in vector bundles
+
+## Vector fields as sections
+
+
+# Open issues
+
+- [ ] What exactly is the difference between the notation 
+
+
+
 
 
 Example of a theorem involving sections (see [Bundle.contMDiffAt_section](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/VectorBundle/Basic.html#Bundle.contMDiffAt_section)):
