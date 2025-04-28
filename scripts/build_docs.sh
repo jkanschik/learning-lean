@@ -44,7 +44,7 @@ MATHLIB_NO_CACHE_ON_UPDATE=1 ~/.elan/bin/lake update LearningMathlib
 # Build the docs
 ~/.elan/bin/lake build LearningMathlib:docs
 
-# Copy documentation to `docs/docs`
+# Copy documentation to `./_site`, assuming that the jekyll documentation has been built earlier.
 cd ../
-sudo chown -R runner docs
-cp -r docbuild/.lake/build/doc docs/docs
+sudo chown -R runner ./_site
+cp -r docbuild/.lake/build/doc ./_site

@@ -40,22 +40,14 @@ jobs:
           restore-keys: |
             MathlibDoc-
 
-      - name: Build project API documentation
-        run: scripts/build_docs.sh
-
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
-        with:
-          source: ./
-          destination: ./_site
 
-      - name: Copy API to Jekyll page for deployment
-        run: |
-          sudo chown -R runner _site
-          cp -r docs ./_site
+      - name: Build project API documentation
+        run: scripts/build_docs.sh
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
