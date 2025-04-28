@@ -1,5 +1,2 @@
--- This module serves as the root of the `LearningMathlib` library.
--- Import modules here that should be built as part of the library.
+import LearningMathlib.Exercises.Manifolds
 import LearningMathlib.LinearConnection
-import LearningMathlib.Bundles
-import LearningMathlib.AffineConnection
