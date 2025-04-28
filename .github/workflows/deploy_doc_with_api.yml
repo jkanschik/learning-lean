@@ -57,6 +57,9 @@ jobs:
           source: ./
           destination: ./_site
 
+      - name: Copy API to Jekyll page for deployment
+        run: cp -r docs ./_site
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
