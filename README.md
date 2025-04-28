@@ -6,6 +6,10 @@
 
 [Exercises](https://live.lean-lang.org/#url=https%3A%2F%2Fraw.githubusercontent.com%2Fjkanschik%2Flearning-lean%2Frefs%2Fheads%2Fmain%2FLearningMathlib%2Fexercise%2Fmanifolds.lean)
 
+[API Documentation](/doc)
+
+[Github Pages](https://jkanschik.github.io/learning-lean/)
+
 Tactics Cheat Sheet: https://github.com/PatrickMassot/GlimpseOfLean/blob/master/tactics.pdf
 
 ## Creating the documentation
