@@ -85,7 +85,6 @@ The curvature tensor is skew-symmetric in the first two components.
 lemma curvature_skew (𝓓 : LinearConnection I M F n V)
   (s : Π (x : M), V x)
   (X Y : Π (x : M), TangentSpace I x) : curvature F n V 𝓓 s X Y = curvature F n V 𝓓 s Y X := by
-  unfold
   sorry
 
 end Curvature
