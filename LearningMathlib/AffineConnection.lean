@@ -158,8 +158,13 @@ structure AffineConnection where
     MDifferentiableAt I I.tangent (fun x => (toFun X Y x : TangentBundle I M)) x₀
 
 
-
 namespace AffineConnection
+
+-- instance instFunLike : FunLike (AffineConnection I M n) (Π (x : M), TangentSpace I x)  ((Π (x : M), TangentSpace I x) → (Π (x : M), TangentSpace I x)) where
+--   coe := Subtype.val
+--   coe_injective' := Subtype.coe_injective
+
+
 
 /-
 In this section, we prove general properties of affine connections.

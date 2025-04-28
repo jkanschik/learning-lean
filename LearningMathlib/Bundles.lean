@@ -192,3 +192,7 @@ variable (g h : M → 𝕜)
 variable (k : 𝕜)
 variable (T : TangentSpace 𝓘(𝕜, 𝕜) k)
 #check T
+
+-- 𝕜, ℝ, γ, ℝ^n, →, 𝓧, Γ, 𝓓, ×, C^n, x₀ s₁ s₂ X₁ X₂ f₁ f₂ a₁ a₂ ∈
+-- Π (x : M),
+-- 
