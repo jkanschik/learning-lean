@@ -157,12 +157,13 @@ graph TD;
         T15["Connection along immersions (incl. curves)"]
         T16["Existence and uniqueness of parallel transport"]
 
+        T2-->T13.1
         T10-->T13.1
         T18-->T13.1
         T17-->T18-->T11.1-->T13
         T13.1-->T13
         T17-->T10
-        T17-->T11
+        T17-->T11-->T14
         T13-->T14
         T10-->T15-->T16
     end
