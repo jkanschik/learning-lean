@@ -160,7 +160,7 @@ graph TD;
     T52["Exterior derivative"]
     T53["de Rham cohomology"]
 
-    T50-->T51-->T52-->T53
+    T1-->T50-->T51-->T52-->T53
 
 
 ```
