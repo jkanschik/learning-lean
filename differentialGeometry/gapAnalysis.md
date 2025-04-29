@@ -111,56 +111,78 @@ A few topics:
 
 ```mermaid
 graph TD;
-    T1["Construction of tensor bundles"]
-    T2["Definition of metric"]
-    T3["Define length of curves and vectors"]
-    T4["Definition of Isom(M;g) and Isom₀(M;g)"]
-    T5["Isom(M;g) is a group and Isom₀(M;g) a normal subgroup"]
 
-    T1-->T2-->T3
-    T2-->T4-->T5
+    subgraph "Vector and Tensor Bundles"
+        T1["Construction of tensor bundles"]
+    end
 
-    T10["Connections on vector bundles (and tensor bundles)"]
-    T11["Definition of torsion and curvature tensor"]
-    T12["Musical isomorphisms on tensors (given a metric)"]
-    T13["Levi-Civita connection"]
-    T14["Ricci, scalar and sectional curvature"]
-    T15["Connection along immersions (incl. curves)"]
-    T16["Existence and uniqueness of parallel transport"]
+    subgraph "Metrics"
+        T2["Definition of metric"]
+        T3["Define length of curves and vectors"]
+        T12["Musical isomorphisms on tensors (given a metric)"]
+        T4["Definition of Isom(M,g;M',g'), Isom(M,g) and Isom₀(M,g)"]
+        T5["Isom(M,g) is a group and Isom₀(M,g) a normal subgroup"]
 
-    T1-->T10-->T11-->T13
-    T10-->T12
-    T2-->T12
-    T12-->T13-->T14
-    T11-->T14
-    T10-->T15-->T16
+        T2-->T3
+        T2-->T12
+        T2-->T4-->T5
+    end
 
-    T30["Define a geodesic (c'' = 0)"]
-    T31["Existence and uniqueness of geodesics"]
-    T32["Define exponential map"]
-    T33["Define Energy functional"]
-    T34["Geodesics minimize the energy functional and length"]
-    T35["Geodesic distance is metric"]
+    T1-->T2
 
-    T15-->T30
-    T30-->T31-->T32
-    T30-->T34
-    T3-->T33-->T34-->T35
+    subgraph "Connections"
+        T10["Connections on vector bundles (and tensor bundles)"]
+        T11["Definition of torsion and curvature tensor"]
+        T13["Levi-Civita connection"]
+        T14["Ricci, scalar and sectional curvature"]
+        T15["Connection along immersions (incl. curves)"]
+        T16["Existence and uniqueness of parallel transport"]
 
-    T40["Variations and variation vector fields"]
-    T41["Jacobi formula"]
-    T42["Estimations of Jacobi fields when curvature is bounded"]
-    T43["Estimations for conjugate radius"]
+        T10-->T11-->T13-->T14
+        T11-->T14
+        T10-->T15-->T16
+    end
 
-    T30-->T41
-    T40-->T41-->T42-->T43
+    T1-->T10
+    T12-->T13
 
-    T50["Exterior products of vector bundles"]
-    T51["Differential forms"]
-    T52["Exterior derivative"]
-    T53["de Rham cohomology"]
+    subgraph "Geodesics"
+        T30["Define a geodesic (c'' = 0)"]
+        T31["Existence and uniqueness of geodesics"]
+        T32["Define exponential map"]
+        T33["Define Energy functional"]
+        T40["Variations and variation vector fields"]
+        T34["Geodesics minimize the energy functional and length"]
+        T35["Geodesic distance is metric"]
 
-    T1-->T50-->T51-->T52-->T53
+        T15-->T30
+        T3-->T33
+
+        T30-->T31-->T32
+        T30-->T34-->T40
+        T33-->T34-->T35
+    end
+
+    subgraph "Jacobi"
+        T41["Jacobi formula"]
+        T42["Estimations of Jacobi fields when curvature is bounded"]
+        T43["Estimations for conjugate radius"]
+
+        T30-->T41
+        T40-->T41-->T42-->T43
+    end
+
+    subgraph "Differential forms"
+        T50["Exterior products of vector bundles"]
+        T51["Differential forms"]
+        T52["Exterior derivative"]
+        T53["de Rham cohomology"]
+
+
+        T1-->T50
+        T50-->T51-->T52-->T53
+    end
+
 
 
 ```
