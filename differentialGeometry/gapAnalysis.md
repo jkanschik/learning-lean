@@ -136,17 +136,30 @@ graph TD;
     T1-->T2
 
     subgraph "Connections"
-        T10["Connections on vector bundles (and tensor bundles)"]
+        T17["Definition of connections on vector bundles"]
+        style T17 color:red
+        T18["Define affine connection as a connection on TM"]
+        style T18 color:red
+        T11.1["Definition of torsion"]
+        style T11.1 color:red
+
+        T10["Connections on vector bundles induce connection on tensor bundles"]
         style T10 color:red
-        T11["Definition of torsion and curvature tensor"]
-        style T11 color:red
+
+        T11["Definition of curvature tensor"]
+
+
         T13["Levi-Civita connection"]
         style T13 color:red
         T14["Ricci, scalar and sectional curvature"]
         T15["Connection along immersions (incl. curves)"]
         T16["Existence and uniqueness of parallel transport"]
 
-        T10-->T11-->T13-->T14
+        T17-->T18-->T11.1
+        T18-->T13
+        T17-->T10
+        T17-->T11
+        T13-->T14
         T10-->T15-->T16
     end
 
