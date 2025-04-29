@@ -140,11 +140,13 @@ graph TD;
         style T17 color:red
         T18["Define affine connection as a connection on TM"]
         style T18 color:red
-        T11.1["Definition of torsion"]
+        T11.1["Definition of torsion and torsion free"]
         style T11.1 color:red
 
         T10["Connections on vector bundles induce connection on tensor bundles"]
         style T10 color:red
+        T13.1["Connection is compatible with metric if g is parallel"]
+        style T13.1 color:red
 
         T11["Definition of curvature tensor"]
 
@@ -155,8 +157,10 @@ graph TD;
         T15["Connection along immersions (incl. curves)"]
         T16["Existence and uniqueness of parallel transport"]
 
-        T17-->T18-->T11.1
-        T18-->T13
+        T10-->T13.1
+        T18-->T13.1
+        T17-->T18-->T11.1-->T13
+        T13.1-->T13
         T17-->T10
         T17-->T11
         T13-->T14
