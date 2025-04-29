@@ -109,17 +109,22 @@ A few topics:
 
 ## Dependency diagram
 
+The red topics should be the first; as a first milestone, we could introduce the Levi-Civita Connection and proof it's existence and uniqueness.
+
 ```mermaid
 graph TD;
 
     subgraph "Vector and Tensor Bundles"
         T1["Construction of tensor bundles"]
+        style T1 color:red
     end
 
     subgraph "Metrics"
         T2["Definition of metric"]
-        T3["Define length of curves"]
+        style T2 color:red
         T12["Musical isomorphisms on tensors"]
+        style T12 color:red
+        T3["Define length of curves"]
         T4["Definition of Isom(M,g;M',g'), Isom(M,g) and Isom₀(M,g)"]
         T5["Isom(M,g) is a group and Isom₀(M,g) a normal subgroup"]
 
@@ -132,8 +137,11 @@ graph TD;
 
     subgraph "Connections"
         T10["Connections on vector bundles (and tensor bundles)"]
+        style T10 color:red
         T11["Definition of torsion and curvature tensor"]
+        style T11 color:red
         T13["Levi-Civita connection"]
+        style T13 color:red
         T14["Ricci, scalar and sectional curvature"]
         T15["Connection along immersions (incl. curves)"]
         T16["Existence and uniqueness of parallel transport"]
