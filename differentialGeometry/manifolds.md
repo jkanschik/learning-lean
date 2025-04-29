@@ -66,10 +66,17 @@ We first consider `ContMDiff`: a function between two manifolds is differentiabl
 
 ### The space of all differentiable functions
 
-In file [ContMDiffMap](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/ContMDiffMap.html#ContMDiffMap) the space of all differentiable functions  `f: M → N` with smoothness parameter `n` is introduced as [`ContMDiffMap I I' M M' n`](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/ContMDiffMap.html#ContMDiffMap).
+In file [ContMDiffMap](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/ContMDiffMap.html#ContMDiffMap), the space of all differentiable functions  `f: M → N` with smoothness parameter `n` is introduced as [`ContMDiffMap I I' M M' n`](https://leanprover-community.github.io/mathlib4_docs/Mathlib/Geometry/Manifold/ContMDiffMap.html#ContMDiffMap).
 As a shorter notation, we can use `C^n⟮I, M; I', N⟯` and for functions with values in `𝕜` we can write `C^n⟮I, M; 𝕜⟯`.
 
-The same file also provides various functions in `C^n⟮I, M; I', N⟯` and `C^n⟮I, M; 𝕜⟯`, namely the identity, constant functions, compositions, products of functions and the projection onto factors of products.
+The same file also proofs that certain standard functions are in `C^n⟮I, M; I', N⟯` and `C^n⟮I, M; 𝕜⟯`, namely:
+
+* the identity on a manifold `ContMDiffMap.id : C^n⟮I, M; I, M⟯`
+* the constant function from a manifold to `𝕜` : `ContMDiffMap.const : C^n⟮I, M; 𝕜⟯`
+* the composition of two functions (as differentiable functions): `ContMDiffMap.comp`
+* the projections from a product of manifolds to the first and second factor: `ContMDiffMap.fst : C^n⟮I', M × M'; I, M⟯` and `ContMDiffMap.fst : C^n⟮I', M × M'; I, M⟯`
+* the product `x ↦ (f x, g x)` of two functions: `ContMDiffMap.prodMk :  C^n⟮I', M × M'; I, M⟯`
+
 
 ### The Fréchet derivative
 
