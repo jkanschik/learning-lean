@@ -118,8 +118,8 @@ graph TD;
 
     subgraph "Metrics"
         T2["Definition of metric"]
-        T3["Define length of curves and vectors"]
-        T12["Musical isomorphisms on tensors (given a metric)"]
+        T3["Define length of curves"]
+        T12["Musical isomorphisms on tensors"]
         T4["Definition of Isom(M,g;M',g'), Isom(M,g) and Isom₀(M,g)"]
         T5["Isom(M,g) is a group and Isom₀(M,g) a normal subgroup"]
 
@@ -158,6 +158,7 @@ graph TD;
         T3-->T33
 
         T30-->T31-->T32
+        T13-->T34
         T30-->T34
         T40-->T34
         T33-->T34-->T35
