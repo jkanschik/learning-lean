@@ -1,12 +1,12 @@
 # A Gap Analyis for Riemannian Geometry
 
-To make any statements about (Pseudo-)Riemannian Geometry, many structures and propositions need to be established in Mathlib. On this page we give an oppiniated overview about topics which often occur in Riemannian Geometry and about the current state in Mathlib.
+To make any statements about (Pseudo-)Riemannian Geometry, many structures and propositions need to be established in Mathlib. On this page we give an opinionated overview about topics which often occur in Riemannian Geometry.
 
 A few things to note:
-* The analysis focuses on real manifolds, though most statements can be made over a general NontriviallyNormedField.
-* Some parts may not work for Pseudo-Riemannian geometries
-* The description is not mathematically precise, it should just give an idea of the topic
-* Many interesting topics are missing - but we have to start somewhere
+* The analysis focuses on real manifolds, though most statements can be made over a general `NontriviallyNormedField`.
+* Some parts may not work for Pseudo-Riemannian geometries.
+* The description is not mathematically precise, it should just give an idea of the topic.
+* Many interesting topics are missing - but we have to start somewhere.
 
 ## Curves and submanifolds
 
@@ -27,15 +27,17 @@ Here, we refer only to vector bundles, not to principal fibre bundles etc. For e
 
 Most vector bundles in Riemannian are actually tensor bundles of the tangent bundle and many objects are usually viewed as sections in tensor bundles of the tangent bundle (aka tensors).
 
+A tensor (field) of type (k,l) is a smooth section in a tensor bundle with type (k,l) of the tangent bundle.
+
 Examples for such objects are:
-1. The metric is a section in the (0, 2) tensor bundle of TM
-1. The curvature tensor is a section in the (1, 3) tensor bundle
-1. The Ricci tensor is also a (0, 2) tensor
+1. The metric is a (0, 2) tensor
+1. The curvature tensor is a (1, 3) tensor
+1. The Ricci tensor is also a (0, 2) tensor - this is why we can combine Ric and g in General Relativity
 1. The curvature tensor for the Levi-Civita connection is sometimes also seen as a (2, 2) or (0, 4) tensor. For example `R(X ∧ Y) = Z ∧ W`, which is a symmetric, bilinear form on the exterior product `TM ∧ TM`.
 1. A function can be seen as a (0, 0) tensor
 1. A vector field is a (1, 0) tensor
 1. The torsion of a connection is a (1, 2) tensor
-1. Differential forms are alternating (0, k) tensors, or alternatively sections in the exterior product of the tangent bundle.
+1. Differential forms are alternating (0, k) tensors, or sections in the exterior product of the tangent bundle.
 
 We also have vector bundles in the theory of submanifolds:
 1. Vector fields along immersions `i: N -> M` can be seen as sections in the bundle over `N` with fibre `T_i(p) M`
@@ -50,7 +52,7 @@ Topics to cover:
 
 ## Linear Connections
 
-The most important connection on (Pseudo-) Riemannian manifolds is the Levi-Civita connection, but for example in the theory of homogeneous spaces there are other linear connections, such that all left invariant vector fields along curves are parallel.
+The most important connection on (Pseudo-)Riemannian manifolds is the Levi-Civita connection, but for example in the theory of homogeneous spaces there are other linear connections, such that all left invariant vector fields along curves are parallel.
 
 Connections are also used for submanifolds, like the normal connection which is used in the formulation of the Gauss-Codazzi equations.
 
@@ -60,10 +62,10 @@ So, topics to look at are:
 1. Definition of linear connections on arbitrary vector bundles, including bundles over immersions.
 1. Definition of curvature of linear connections and torsion of affine connections.
 1. Define parallel sections / parallel transport on vector bundles, prove existence and uniqueness (Picard-Lindeloff in coordinates).
-1. Special case affine connection on `TM`
+1. Special case: the affine connections on `TM`
 1. A connection on a vector bundle induces a unique connection on the tensor bundles.
-1. Levi-Civita connection as unique affine connection which has no torsion and where the metric (0, 2) tensor is parallel.
-1. Definition of curvature : curvature tensor, Ricci, scalar curvature, sectional curvature on planes
+1. Levi-Civita connection: this is the unique affine connection which has no torsion and where the metric (0, 2) tensor is parallel.
+1. Definition of curvature: curvature tensor, Ricci, scalar curvature, sectional curvature on planes
 
 ## Geodesics and exponential map
 
