@@ -139,7 +139,6 @@ graph TD;
         T16["Existence and uniqueness of parallel transport"]
 
         T10-->T11-->T13-->T14
-        T11-->T14
         T10-->T15-->T16
     end
 
@@ -159,7 +158,8 @@ graph TD;
         T3-->T33
 
         T30-->T31-->T32
-        T30-->T34-->T40
+        T30-->T34
+        T40-->T34
         T33-->T34-->T35
     end
 
@@ -177,7 +177,6 @@ graph TD;
         T51["Differential forms"]
         T52["Exterior derivative"]
         T53["de Rham cohomology"]
-
 
         T1-->T50
         T50-->T51-->T52-->T53
